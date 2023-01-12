@@ -5,12 +5,12 @@
 Network Working Group                                        D. Bourdrez
 Internet-Draft                                                          
 Intended status: Informational                               H. Krawczyk
-Expires: 11 June 2023                                Algorand Foundation
+Expires: 16 July 2023                                Algorand Foundation
                                                                  K. Lewi
                                                            Novi Research
                                                               C. A. Wood
                                                         Cloudflare, Inc.
-                                                         8 December 2022
+                                                         12 January 2023
 
 
                   The OPAQUE Asymmetric PAKE Protocol
@@ -49,11 +49,11 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 11 June 2023.
+   This Internet-Draft will expire on 16 July 2023.
 
 Copyright Notice
 
-   Copyright (c) 2022 IETF Trust and the persons identified as the
+   Copyright (c) 2023 IETF Trust and the persons identified as the
    document authors.  All rights reserved.
 
    This document is subject to BCP 78 and the IETF Trust's Legal
@@ -299,11 +299,11 @@ Table of Contents
 
    Moreover, the following OPRF server APIs are used:
 
-   *  Evaluate(k, blinded_element): Evaluate blinded input element
+   *  BlindEvaluate(k, blinded_element): Evaluate blinded input element
       blinded_element using input key k, yielding output element
-      evaluated_element.  This is equivalent to the Evaluate function
-      described in [OPRF], Section 3.3.1, where k is the private key
-      parameter.
+      evaluated_element.  This is equivalent to the BlindEvaluate
+      function described in [OPRF], Section 3.3.1, where k is the
+      private key parameter.
 
    *  DeriveKeyPair(seed, info): Derive a private and public key pair
       deterministically from a seed and info parameter, as described in
@@ -801,7 +801,7 @@ def CreateRegistrationResponse(request, server_public_key,
   (oprf_key, _) = DeriveKeyPair(seed, "OPAQUE-DeriveKeyPair")
 
   blinded_element = DeserializeElement(request.blinded_message)
-  evaluated_element = Evaluate(oprf_key, blinded_element)
+  evaluated_element = BlindEvaluate(oprf_key, blinded_element)
   evaluated_message = SerializeElement(evaluated_element)
 
   Create RegistrationResponse response with (evaluated_message, server_public_key)
@@ -1231,7 +1231,7 @@ def CreateCredentialResponse(request, server_public_key, record,
   (oprf_key, _) = DeriveKeyPair(seed, "OPAQUE-DeriveKeyPair")
 
   blinded_element = DeserializeElement(request.blinded_message)
-  evaluated_element = Evaluate(oprf_key, blinded_element)
+  evaluated_element = BlindEvaluate(oprf_key, blinded_element)
   evaluated_message = SerializeElement(evaluated_element)
 
   masking_nonce = random(Nn)
@@ -2181,16 +2181,16 @@ def AuthServerRespond(server_identity, server_private_key, client_identity,
               Davidson, A., Faz-Hernandez, A., Sullivan, N., and C. A.
               Wood, "Oblivious Pseudorandom Functions (OPRFs) using
               Prime-Order Groups", Work in Progress, Internet-Draft,
-              draft-irtf-cfrg-voprf-16, 28 November 2022,
+              draft-irtf-cfrg-voprf-17, 9 January 2023,
               <https://datatracker.ietf.org/doc/html/draft-irtf-cfrg-
-              voprf-16>.
+              voprf-17>.
 
    [OPRF]     Davidson, A., Faz-Hernandez, A., Sullivan, N., and C. A.
               Wood, "Oblivious Pseudorandom Functions (OPRFs) using
               Prime-Order Groups", Work in Progress, Internet-Draft,
-              draft-irtf-cfrg-voprf-16, 28 November 2022,
+              draft-irtf-cfrg-voprf-17, 9 January 2023,
               <https://datatracker.ietf.org/doc/html/draft-irtf-cfrg-
-              voprf-16>.
+              voprf-17>.
 
    [RFC2104]  Krawczyk, H., Bellare, M., and R. Canetti, "HMAC: Keyed-
               Hashing for Message Authentication", RFC 2104,

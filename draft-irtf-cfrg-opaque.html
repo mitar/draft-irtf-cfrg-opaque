@@ -24,14 +24,14 @@ based on 3DH.
 <meta content="draft-irtf-cfrg-opaque-latest" name="ietf.draft">
 <!-- Generator version information:
   xml2rfc 3.15.3
-    Python 3.10.8
+    Python 3.10.9
     appdirs 1.4.4
     ConfigArgParse 1.5.3
     google-i18n-address 2.5.2
     html5lib 1.1
     intervaltree 3.1.0
     Jinja2 3.1.2
-    lxml 4.9.1
+    lxml 4.9.2
     MarkupSafe 2.1.1
     pycountry 22.3.5
     PyYAML 6.0
@@ -405,7 +405,7 @@ dl > dd > dl {
   margin-top: 0.5em;
   margin-bottom: 0;
 }
-dl .break {
+:is(dd, span).break {
   display: none;
 }
 
@@ -425,7 +425,7 @@ a[href]:hover {
 a[href].selfRef:hover {
   background-color: var(--highlight-color);
 }
-a.xref {
+a.xref:is(.cite, .auto), :is(#status-of-memo, #copyright) a {
   white-space: nowrap;
 }
 
@@ -437,7 +437,9 @@ tt, code, pre {
 tt, code {
   /* changing the font for inline elements leads to different ascender
      and descender heights; as we want to retain baseline alignment,
-     remove leading to avoid altering the final height of lines */
+     remove leading to avoid altering the final height of lines
+     note: this fails if these blocks take an entire line,
+     a different solution would be great */
   line-height: 0;
 }
 :is(h1, h2, h3, h4, h5, h6) :is(tt, code) {
@@ -1034,7 +1036,7 @@ svg :is([stroke="white"], [stroke^="#fff"]) {
 svg :is([fill="black"], [fill^="#000"], :not([fill])) {
   fill: var(--text-color);
 }
-svg :is([stroke="fill"], [fill^="#fff"]) {
+svg :is([fill="white"], [fill^="#fff"]) {
   fill: var(--background-color);
 }
 </style>
@@ -1045,11 +1047,11 @@ svg :is([stroke="fill"], [fill^="#fff"]) {
 <thead><tr>
 <td class="left">Internet-Draft</td>
 <td class="center">OPAQUE</td>
-<td class="right">December 2022</td>
+<td class="right">January 2023</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Bourdrez, et al.</td>
-<td class="center">Expires 11 June 2023</td>
+<td class="center">Expires 16 July 2023</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1062,12 +1064,12 @@ svg :is([stroke="fill"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-irtf-cfrg-opaque-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2022-12-08" class="published">8 December 2022</time>
+<time datetime="2023-01-12" class="published">12 January 2023</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2023-06-11">11 June 2023</time></dd>
+<dd class="expires"><time datetime="2023-07-16">16 July 2023</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1127,7 +1129,7 @@ based on 3DH.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 11 June 2023.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 16 July 2023.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1136,7 +1138,7 @@ based on 3DH.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
 <a href="#name-copyright-notice" class="section-name selfRef">Copyright Notice</a>
         </h2>
 <p id="section-boilerplate.2-1">
-            Copyright (c) 2022 IETF Trust and the persons identified as the
+            Copyright (c) 2023 IETF Trust and the persons identified as the
             document authors. All rights reserved.<a href="#section-boilerplate.2-1" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.2-2">
             This document is subject to BCP 78 and the IETF Trust's Legal
@@ -1562,7 +1564,7 @@ the OPAQUE protocol are of length <code>Nn</code> and <code>Nseed</code> bytes, 
 <p id="section-2.1-1">An Oblivious Pseudorandom Function (OPRF) is a two-party protocol between client and
 server for computing a PRF such that the client learns the PRF output and neither party learns
 the input of the other. This specification depends on the prime-order OPRF construction specified
-in <span>[<a href="#OPRF" class="cite xref">OPRF</a>]</span>, draft version -10, using the OPRF mode (0x00) from <span>[<a href="#OPRF" class="cite xref">OPRF</a>], <a href="https://datatracker.ietf.org/doc/html/draft-irtf-cfrg-voprf-16#section-3.1" class="relref">Section 3.1</a></span>.<a href="#section-2.1-1" class="pilcrow">¶</a></p>
+in <span>[<a href="#OPRF" class="cite xref">OPRF</a>]</span>, draft version -10, using the OPRF mode (0x00) from <span>[<a href="#OPRF" class="cite xref">OPRF</a>], <a href="https://datatracker.ietf.org/doc/html/draft-irtf-cfrg-voprf-17#section-3.1" class="relref">Section 3.1</a></span>.<a href="#section-2.1-1" class="pilcrow">¶</a></p>
 <p id="section-2.1-2">The following OPRF client APIs are used:<a href="#section-2.1-2" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-2.1-3.1">Blind(element): Create and output (<code>blind</code>, <code>blinded_element</code>), consisting of a blinded
@@ -1575,12 +1577,12 @@ random inverter <code>blind</code>, and evaluation output <code>evaluated_elemen
         </ul>
 <p id="section-2.1-4">Moreover, the following OPRF server APIs are used:<a href="#section-2.1-4" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-2.1-5.1">Evaluate(k, blinded_element): Evaluate blinded input element <code>blinded_element</code> using
+<li class="normal" id="section-2.1-5.1">BlindEvaluate(k, blinded_element): Evaluate blinded input element <code>blinded_element</code> using
 input key <code>k</code>, yielding output element <code>evaluated_element</code>. This is equivalent to
-the Evaluate function described in <span>[<a href="#OPRF" class="cite xref">OPRF</a>], <a href="https://datatracker.ietf.org/doc/html/draft-irtf-cfrg-voprf-16#section-3.3.1" class="relref">Section 3.3.1</a></span>, where <code>k</code> is the private key parameter.<a href="#section-2.1-5.1" class="pilcrow">¶</a>
+the BlindEvaluate function described in <span>[<a href="#OPRF" class="cite xref">OPRF</a>], <a href="https://datatracker.ietf.org/doc/html/draft-irtf-cfrg-voprf-17#section-3.3.1" class="relref">Section 3.3.1</a></span>, where <code>k</code> is the private key parameter.<a href="#section-2.1-5.1" class="pilcrow">¶</a>
 </li>
           <li class="normal" id="section-2.1-5.2">DeriveKeyPair(seed, info): Derive a private and public key pair deterministically
-from a seed and info parameter, as described in <span>[<a href="#OPRF" class="cite xref">OPRF</a>], <a href="https://datatracker.ietf.org/doc/html/draft-irtf-cfrg-voprf-16#section-3.2" class="relref">Section 3.2</a></span>.<a href="#section-2.1-5.2" class="pilcrow">¶</a>
+from a seed and info parameter, as described in <span>[<a href="#OPRF" class="cite xref">OPRF</a>], <a href="https://datatracker.ietf.org/doc/html/draft-irtf-cfrg-voprf-17#section-3.2" class="relref">Section 3.2</a></span>.<a href="#section-2.1-5.2" class="pilcrow">¶</a>
 </li>
         </ul>
 <p id="section-2.1-6">Finally, this specification makes use of the following shared APIs and parameters:<a href="#section-2.1-6" class="pilcrow">¶</a></p>
@@ -1588,7 +1590,7 @@ from a seed and info parameter, as described in <span>[<a href="#OPRF" class="ci
 <li class="normal" id="section-2.1-7.1">SerializeElement(element): Map input <code>element</code> to a fixed-length byte array <code>buf</code>.<a href="#section-2.1-7.1" class="pilcrow">¶</a>
 </li>
           <li class="normal" id="section-2.1-7.2">DeserializeElement(buf): Attempt to map input byte array <code>buf</code> to an OPRF group element.
-This function can raise a DeserializeError upon failure; see <span>[<a href="#OPRF" class="cite xref">OPRF</a>], <a href="https://datatracker.ietf.org/doc/html/draft-irtf-cfrg-voprf-16#section-2.1" class="relref">Section 2.1</a></span>
+This function can raise a DeserializeError upon failure; see <span>[<a href="#OPRF" class="cite xref">OPRF</a>], <a href="https://datatracker.ietf.org/doc/html/draft-irtf-cfrg-voprf-17#section-2.1" class="relref">Section 2.1</a></span>
 for more details.<a href="#section-2.1-7.2" class="pilcrow">¶</a>
 </li>
           <li class="normal" id="section-2.1-7.3">Noe: The size of a serialized OPRF group element output from SerializeElement.<a href="#section-2.1-7.3" class="pilcrow">¶</a>
@@ -2138,7 +2140,7 @@ def CreateRegistrationResponse(request, server_public_key,
   (oprf_key, _) = DeriveKeyPair(seed, "OPAQUE-DeriveKeyPair")
 
   blinded_element = DeserializeElement(request.blinded_message)
-  evaluated_element = Evaluate(oprf_key, blinded_element)
+  evaluated_element = BlindEvaluate(oprf_key, blinded_element)
   evaluated_message = SerializeElement(evaluated_element)
 
   Create RegistrationResponse response with (evaluated_message, server_public_key)
@@ -2634,7 +2636,7 @@ def CreateCredentialResponse(request, server_public_key, record,
   (oprf_key, _) = DeriveKeyPair(seed, "OPAQUE-DeriveKeyPair")
 
   blinded_element = DeserializeElement(request.blinded_message)
-  evaluated_element = Evaluate(oprf_key, blinded_element)
+  evaluated_element = BlindEvaluate(oprf_key, blinded_element)
   evaluated_message = SerializeElement(evaluated_element)
 
   masking_nonce = random(Nn)
@@ -2756,7 +2758,7 @@ setting:<a href="#section-6.4.1-1" class="pilcrow">¶</a></p>
 <li class="normal" id="section-6.4.1-2.1">DeriveAuthKeyPair(seed): Derive a private and public authentication key pair
 deterministically from the input <code>seed</code>. This function is implemented as
 DeriveKeyPair(seed, "OPAQUE-DeriveAuthKeyPair"), where DeriveKeyPair is
-as specified in <span>[<a href="#OPRF" class="cite xref">OPRF</a>], <a href="https://datatracker.ietf.org/doc/html/draft-irtf-cfrg-voprf-16#section-3.2" class="relref">Section 3.2</a></span>.<a href="#section-6.4.1-2.1" class="pilcrow">¶</a>
+as specified in <span>[<a href="#OPRF" class="cite xref">OPRF</a>], <a href="https://datatracker.ietf.org/doc/html/draft-irtf-cfrg-voprf-17#section-3.2" class="relref">Section 3.2</a></span>.<a href="#section-6.4.1-2.1" class="pilcrow">¶</a>
 </li>
             <li class="normal" id="section-6.4.1-2.2">GenerateAuthKeyPair(): Return a randomly generated private and public key
 pair. This can be implemented by invoking DeriveAuthKeyPair with <code>Nseed</code>
@@ -2765,7 +2767,7 @@ random bytes as input.<a href="#section-6.4.1-2.2" class="pilcrow">¶</a>
             <li class="normal" id="section-6.4.1-2.3">SerializeElement(element): A member function of the underlying group that
 maps <code>element</code> to a unique byte array, mirrored from the definition of the
 similarly-named function of the OPRF group described in
-<span>[<a href="#OPRF" class="cite xref">OPRF</a>], <a href="https://datatracker.ietf.org/doc/html/draft-irtf-cfrg-voprf-16#section-2.1" class="relref">Section 2.1</a></span>.<a href="#section-6.4.1-2.3" class="pilcrow">¶</a>
+<span>[<a href="#OPRF" class="cite xref">OPRF</a>], <a href="https://datatracker.ietf.org/doc/html/draft-irtf-cfrg-voprf-17#section-2.1" class="relref">Section 2.1</a></span>.<a href="#section-6.4.1-2.3" class="pilcrow">¶</a>
 </li>
           </ul>
 </section>
@@ -3322,7 +3324,7 @@ suitable for interoperable implementations.<a href="#section-10.1-5" class="pilc
 and includes necessary prime-order subgroup checks when receiving attacker-controlled
 values over the wire. This specification instantiates the prime-order group used for
 3DH using prime-order groups based on elliptic curves, as described in
-<span>[<a href="#I-D.irtf-cfrg-voprf" class="cite xref">I-D.irtf-cfrg-voprf</a>], <a href="https://datatracker.ietf.org/doc/html/draft-irtf-cfrg-voprf-16#section-2.1" class="relref">Section 2.1</a></span>. This specification also delegates OPRF group
+<span>[<a href="#I-D.irtf-cfrg-voprf" class="cite xref">I-D.irtf-cfrg-voprf</a>], <a href="https://datatracker.ietf.org/doc/html/draft-irtf-cfrg-voprf-17#section-2.1" class="relref">Section 2.1</a></span>. This specification also delegates OPRF group
 choice and operations to <span>[<a href="#I-D.irtf-cfrg-voprf" class="cite xref">I-D.irtf-cfrg-voprf</a>]</span>. As such, the prime-order group as used
 in the OPRF and 3DH as specified in this document both adhere to the requirements as
 <span>[<a href="#JKX18" class="cite xref">JKX18</a>]</span>.<a href="#section-10.1-6.1" class="pilcrow">¶</a>
@@ -3640,11 +3642,11 @@ incompatible with the OPRF algorithm.<a href="#section-10.12-1" class="pilcrow">
 <dl class="references">
 <dt id="I-D.irtf-cfrg-voprf">[I-D.irtf-cfrg-voprf]</dt>
         <dd>
-<span class="refAuthor">Davidson, A.</span>, <span class="refAuthor">Faz-Hernandez, A.</span>, <span class="refAuthor">Sullivan, N.</span>, and <span class="refAuthor">C. A. Wood</span>, <span class="refTitle">"Oblivious Pseudorandom Functions (OPRFs) using Prime-Order Groups"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-irtf-cfrg-voprf-16</span>, <time datetime="2022-11-28" class="refDate">28 November 2022</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-irtf-cfrg-voprf-16">https://datatracker.ietf.org/doc/html/draft-irtf-cfrg-voprf-16</a>&gt;</span>. </dd>
+<span class="refAuthor">Davidson, A.</span>, <span class="refAuthor">Faz-Hernandez, A.</span>, <span class="refAuthor">Sullivan, N.</span>, and <span class="refAuthor">C. A. Wood</span>, <span class="refTitle">"Oblivious Pseudorandom Functions (OPRFs) using Prime-Order Groups"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-irtf-cfrg-voprf-17</span>, <time datetime="2023-01-09" class="refDate">9 January 2023</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-irtf-cfrg-voprf-17">https://datatracker.ietf.org/doc/html/draft-irtf-cfrg-voprf-17</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="OPRF">[OPRF]</dt>
         <dd>
-<span class="refAuthor">Davidson, A.</span>, <span class="refAuthor">Faz-Hernandez, A.</span>, <span class="refAuthor">Sullivan, N.</span>, and <span class="refAuthor">C. A. Wood</span>, <span class="refTitle">"Oblivious Pseudorandom Functions (OPRFs) using Prime-Order Groups"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-irtf-cfrg-voprf-16</span>, <time datetime="2022-11-28" class="refDate">28 November 2022</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-irtf-cfrg-voprf-16">https://datatracker.ietf.org/doc/html/draft-irtf-cfrg-voprf-16</a>&gt;</span>. </dd>
+<span class="refAuthor">Davidson, A.</span>, <span class="refAuthor">Faz-Hernandez, A.</span>, <span class="refAuthor">Sullivan, N.</span>, and <span class="refAuthor">C. A. Wood</span>, <span class="refTitle">"Oblivious Pseudorandom Functions (OPRFs) using Prime-Order Groups"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-irtf-cfrg-voprf-17</span>, <time datetime="2023-01-09" class="refDate">9 January 2023</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-irtf-cfrg-voprf-17">https://datatracker.ietf.org/doc/html/draft-irtf-cfrg-voprf-17</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC2104">[RFC2104]</dt>
         <dd>
