@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2022-12-20T01:23:44.008820+00:00",
+  "timestamp": "2023-01-15T01:36:09.528185+00:00",
   "repo": "cfrg/draft-irtf-cfrg-opaque",
   "labels": [
     {
@@ -29239,26 +29239,42 @@
       "id": "PR_kwDOD79ejs5Fvjlr",
       "title": "change the oprf api server dependency to BlindEvaluate",
       "url": "https://github.com/cfrg/draft-irtf-cfrg-opaque/pull/380",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "aldenml",
       "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "I found this while trying to match the test vectors and following the POC implementation.",
       "createdAt": "2022-12-19T02:49:06Z",
-      "updatedAt": "2022-12-19T02:49:06Z",
+      "updatedAt": "2023-01-12T13:08:16Z",
       "baseRepository": "cfrg/draft-irtf-cfrg-opaque",
       "baseRefName": "master",
       "baseRefOid": "30a4fc37c7a09971c3b737c9368077607971f0d8",
       "headRepository": "aldenml/draft-irtf-cfrg-opaque",
       "headRefName": "use-blind-evaluate",
       "headRefOid": "a0e70fb551ed1aa9b984338633b6ce7e6f14d178",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2023-01-12T12:15:19Z",
+      "mergedAt": "2023-01-12T12:15:19Z",
+      "mergedBy": "chris-wood",
+      "mergeCommit": {
+        "oid": "e4342946b696376923ce7160731d938bd1a934ff"
+      },
       "comments": [],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDOD79ejs5KPLT0",
+          "commit": {
+            "abbreviatedOid": "a0e70fb"
+          },
+          "author": "chris-wood",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2023-01-12T12:15:12Z",
+          "updatedAt": "2023-01-12T12:15:12Z",
+          "comments": []
+        }
+      ]
     }
   ]
 }
