@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2023-01-15T01:36:09.528185+00:00",
+  "timestamp": "2023-01-22T01:36:20.107523+00:00",
   "repo": "cfrg/draft-irtf-cfrg-opaque",
   "labels": [
     {
@@ -2889,7 +2889,7 @@
       "labels": [],
       "body": "The record sent from client to server during the registration phase is as follows:\r\n\r\n~~~\r\nstruct {\r\n    Envelope envelope;\r\n    opaque pkU<0..2^16-1>;\r\n} RegistrationUpload;\r\n~~~\r\n\r\nAs is, the server has no assurance that the private key corresponding to `pkU` is inside (or derived from) the envelope. This raises two questions:\r\n\r\n1) Does the client need to prove possession of `skU`?\r\n2) If so, how would this work (non-interactively) for DH-based public keys? If not, we should probably add text clarifying why this isn't needed.",
       "createdAt": "2020-12-03T21:41:04Z",
-      "updatedAt": "2020-12-16T21:08:12Z",
+      "updatedAt": "2023-01-22T00:53:38Z",
       "closedAt": "2020-12-16T21:08:11Z",
       "comments": [
         {
@@ -2912,6 +2912,13 @@
           "body": "Let's close this for now. We can re-open if needed later on.",
           "createdAt": "2020-12-16T21:08:11Z",
           "updatedAt": "2020-12-16T21:08:11Z"
+        },
+        {
+          "author": "bytemare",
+          "authorAssociation": "COLLABORATOR",
+          "body": "I don't mean to reopen, but should we mention in the doc that we have thought of this but don't see it as necessary?",
+          "createdAt": "2023-01-22T00:53:38Z",
+          "updatedAt": "2023-01-22T00:53:38Z"
         }
       ]
     },
