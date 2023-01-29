@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2023-01-22T01:36:20.107523+00:00",
+  "timestamp": "2023-01-29T01:37:55.614407+00:00",
   "repo": "cfrg/draft-irtf-cfrg-opaque",
   "labels": [
     {
@@ -29282,6 +29282,32 @@
           "comments": []
         }
       ]
+    },
+    {
+      "number": 381,
+      "id": "PR_kwDOD79ejs5Io2zt",
+      "title": "minor improvement in the ServerInit input documentation",
+      "url": "https://github.com/cfrg/draft-irtf-cfrg-opaque/pull/381",
+      "state": "OPEN",
+      "author": "aldenml",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2023-01-27T01:38:50Z",
+      "updatedAt": "2023-01-27T01:38:50Z",
+      "baseRepository": "cfrg/draft-irtf-cfrg-opaque",
+      "baseRefName": "master",
+      "baseRefOid": "e4342946b696376923ce7160731d938bd1a934ff",
+      "headRepository": "aldenml/draft-irtf-cfrg-opaque",
+      "headRefName": "param-doc",
+      "headRefOid": "d88550abb122617b89decf0484198f8d28ef7b5e",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
     }
   ]
 }
