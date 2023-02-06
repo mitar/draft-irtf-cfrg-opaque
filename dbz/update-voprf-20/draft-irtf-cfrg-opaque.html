@@ -1564,7 +1564,7 @@ the OPAQUE protocol are of length <code>Nn</code> and <code>Nseed</code> bytes, 
 <p id="section-2.1-1">An Oblivious Pseudorandom Function (OPRF) is a two-party protocol between client and
 server for computing a PRF such that the client learns the PRF output and neither party learns
 the input of the other. This specification depends on the prime-order OPRF construction specified
-in <span>[<a href="#OPRF" class="cite xref">OPRF</a>]</span>, draft version -10, using the OPRF mode (0x00) from <span>[<a href="#OPRF" class="cite xref">OPRF</a>], <a href="https://datatracker.ietf.org/doc/html/draft-irtf-cfrg-voprf-20#section-3.1" class="relref">Section 3.1</a></span>.<a href="#section-2.1-1" class="pilcrow">¶</a></p>
+in <span>[<a href="#OPRF" class="cite xref">OPRF</a>]</span>, draft version -20, using the OPRF mode (0x00) from <span>[<a href="#OPRF" class="cite xref">OPRF</a>], <a href="https://datatracker.ietf.org/doc/html/draft-irtf-cfrg-voprf-20#section-3.1" class="relref">Section 3.1</a></span>.<a href="#section-2.1-1" class="pilcrow">¶</a></p>
 <p id="section-2.1-2">The following OPRF client APIs are used:<a href="#section-2.1-2" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-2.1-3.1">Blind(element): Create and output (<code>blind</code>, <code>blinded_element</code>), consisting of a blinded
@@ -3054,8 +3054,8 @@ def AuthServerFinalize(ke3):
 such that the following conditions are met:<a href="#section-7-1" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-7-2.1">The OPRF protocol uses the "base mode" variant of <span>[<a href="#OPRF" class="cite xref">OPRF</a>]</span> and implements
-the interface in <a href="#dependencies" class="auto internal xref">Section 2</a>. Examples include OPRF(ristretto255, SHA-512) and
-OPRF(P-256, SHA-256).<a href="#section-7-2.1" class="pilcrow">¶</a>
+the interface in <a href="#dependencies" class="auto internal xref">Section 2</a>. Examples include ristretto255-SHA512 and
+P256-SHA256.<a href="#section-7-2.1" class="pilcrow">¶</a>
 </li>
         <li class="normal" id="section-7-2.2">The KDF, MAC, and Hash functions implement the interfaces in <a href="#dependencies" class="auto internal xref">Section 2</a>.
 Examples include HKDF <span>[<a href="#RFC5869" class="cite xref">RFC5869</a>]</span> for the KDF, HMAC <span>[<a href="#RFC2104" class="cite xref">RFC2104</a>]</span> for the MAC,
@@ -3069,7 +3069,7 @@ interface in <a href="#dependencies" class="auto internal xref">Section 2</a>. E
 scrypt <span>[<a href="#SCRYPT" class="cite xref">SCRYPT</a>]</span>, and PBKDF2 <span>[<a href="#PBKDF2" class="cite xref">PBKDF2</a>]</span> with fixed parameter choices.<a href="#section-7-2.3" class="pilcrow">¶</a>
 </li>
         <li class="normal" id="section-7-2.4">The Group mode identifies the group used in the OPAQUE-3DH AKE. This SHOULD
-match that of the OPRF. For example, if the OPRF is OPRF(ristretto255, SHA-512),
+match that of the OPRF. For example, if the OPRF is ristretto255-SHA512,
 then Group SHOULD be ristretto255.<a href="#section-7-2.4" class="pilcrow">¶</a>
 </li>
       </ul>
@@ -3078,10 +3078,10 @@ This parameter SHOULD include any application-specific configuration information
 parameters that are needed to prevent cross-protocol or downgrade attacks.<a href="#section-7-3" class="pilcrow">¶</a></p>
 <p id="section-7-4">Absent an application-specific profile, the following configurations are RECOMMENDED:<a href="#section-7-4" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-7-5.1">OPRF(ristretto255, SHA-512), HKDF-SHA-512, HMAC-SHA-512, SHA-512,
+<li class="normal" id="section-7-5.1">ristretto255-SHA512, HKDF-SHA-512, HMAC-SHA-512, SHA-512,
   Argon2id(t=1, p=4, m=2^21), ristretto255<a href="#section-7-5.1" class="pilcrow">¶</a>
 </li>
-        <li class="normal" id="section-7-5.2">OPRF(P-256, SHA-256), HKDF-SHA-256, HMAC-SHA-256, SHA-256, Argon2id(t=1, p=4, m=2^21), P-256<a href="#section-7-5.2" class="pilcrow">¶</a>
+        <li class="normal" id="section-7-5.2">P256-SHA256, HKDF-SHA-256, HMAC-SHA-256, SHA-256, Argon2id(t=1, p=4, m=2^21), P-256<a href="#section-7-5.2" class="pilcrow">¶</a>
 </li>
       </ul>
 <p id="section-7-6">Future configurations may specify different combinations of dependent algorithms,
