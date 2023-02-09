@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2023-02-07T01:27:08.871708+00:00",
+  "timestamp": "2023-02-09T01:27:29.492654+00:00",
   "repo": "cfrg/draft-irtf-cfrg-opaque",
   "labels": [
     {
@@ -8046,7 +8046,7 @@
       "id": "I_kwDOD79ejs5dXq3a",
       "title": "Update Test Vectors to VOPRF draft version 17",
       "url": "https://github.com/cfrg/draft-irtf-cfrg-opaque/issues/382",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "daxpedda",
       "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
@@ -8055,8 +8055,8 @@
       ],
       "body": "Since VOPRF draft version 17 the Ciphersuite IDs have changed to being strings instead of a simple 2 byte integers.\r\nAdditionally the `CreateContextString` function changed the first string to `OPRFV1-` and added a `-` before the Ciphersuite ID.\r\n\r\nI have also noticed that the editor's copy actually links to the VOPRF draft version 17, even though the test vectors don't seem to have been updated.",
       "createdAt": "2023-02-01T17:07:29Z",
-      "updatedAt": "2023-02-06T17:59:20Z",
-      "closedAt": null,
+      "updatedAt": "2023-02-08T11:34:40Z",
+      "closedAt": "2023-02-08T11:34:38Z",
       "comments": [
         {
           "author": "bytemare",
@@ -8064,6 +8064,13 @@
           "body": "Hi @daxpedda \ud83d\udc4b \r\nhttps://github.com/cfrg/draft-irtf-cfrg-voprf/pull/347 seems to be modifying the poc API. I'll wait for this to be merged to update our poc (even though it has no impact on the vectors).",
           "createdAt": "2023-02-06T17:57:29Z",
           "updatedAt": "2023-02-06T17:57:29Z"
+        },
+        {
+          "author": "chris-wood",
+          "authorAssociation": "COLLABORATOR",
+          "body": "This should be done now. Closing.",
+          "createdAt": "2023-02-08T11:34:38Z",
+          "updatedAt": "2023-02-08T11:34:38Z"
         }
       ]
     }
@@ -29314,52 +29321,97 @@
       "id": "PR_kwDOD79ejs5Io2zt",
       "title": "minor improvement in the ServerInit input documentation",
       "url": "https://github.com/cfrg/draft-irtf-cfrg-opaque/pull/381",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "aldenml",
       "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "",
       "createdAt": "2023-01-27T01:38:50Z",
-      "updatedAt": "2023-01-27T01:38:50Z",
+      "updatedAt": "2023-02-08T13:35:38Z",
       "baseRepository": "cfrg/draft-irtf-cfrg-opaque",
       "baseRefName": "master",
       "baseRefOid": "e4342946b696376923ce7160731d938bd1a934ff",
       "headRepository": "aldenml/draft-irtf-cfrg-opaque",
       "headRefName": "param-doc",
       "headRefOid": "d88550abb122617b89decf0484198f8d28ef7b5e",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2023-02-08T11:34:25Z",
+      "mergedAt": "2023-02-08T11:34:25Z",
+      "mergedBy": "chris-wood",
+      "mergeCommit": {
+        "oid": "a66c97448b7fff8b9a99be984ded474d5c1fe2a3"
+      },
       "comments": [],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDOD79ejs5M1Fi1",
+          "commit": {
+            "abbreviatedOid": "d88550a"
+          },
+          "author": "chris-wood",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2023-02-08T11:34:20Z",
+          "updatedAt": "2023-02-08T11:34:20Z",
+          "comments": []
+        }
+      ]
     },
     {
       "number": 383,
       "id": "PR_kwDOD79ejs5JXpIR",
       "title": "Adapt OPRF calls to take into account new IDs",
       "url": "https://github.com/cfrg/draft-irtf-cfrg-opaque/pull/383",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "bytemare",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "This updates the dependencies to the new VOPRF updates and therefore updates the vectors.",
       "createdAt": "2023-02-06T19:18:45Z",
-      "updatedAt": "2023-02-06T20:59:03Z",
+      "updatedAt": "2023-02-08T11:34:08Z",
       "baseRepository": "cfrg/draft-irtf-cfrg-opaque",
       "baseRefName": "master",
       "baseRefOid": "e4342946b696376923ce7160731d938bd1a934ff",
       "headRepository": "cfrg/draft-irtf-cfrg-opaque",
       "headRefName": "dbz/update-voprf-20",
       "headRefOid": "0eb51051d24482242d1b0617c5ae415537f56822",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2023-02-08T11:34:08Z",
+      "mergedAt": "2023-02-08T11:34:08Z",
+      "mergedBy": "chris-wood",
+      "mergeCommit": {
+        "oid": "6b9bb476c90ae344839a0c3946c547137f25f30c"
+      },
       "comments": [],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDOD79ejs5Mz4-3",
+          "commit": {
+            "abbreviatedOid": "0eb5105"
+          },
+          "author": "kevinlewi",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "Awesome!",
+          "createdAt": "2023-02-08T08:20:43Z",
+          "updatedAt": "2023-02-08T08:20:43Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOD79ejs5M1Fbs",
+          "commit": {
+            "abbreviatedOid": "0eb5105"
+          },
+          "author": "chris-wood",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2023-02-08T11:34:02Z",
+          "updatedAt": "2023-02-08T11:34:02Z",
+          "comments": []
+        }
+      ]
     }
   ]
 }
