@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2023-02-09T01:27:29.492654+00:00",
+  "timestamp": "2023-02-16T01:37:40.718196+00:00",
   "repo": "cfrg/draft-irtf-cfrg-opaque",
   "labels": [
     {
@@ -8073,6 +8073,22 @@
           "updatedAt": "2023-02-08T11:34:38Z"
         }
       ]
+    },
+    {
+      "number": 384,
+      "id": "I_kwDOD79ejs5eiqz6",
+      "title": "Return values of the Recover and RecoverCredentials functions",
+      "url": "https://github.com/cfrg/draft-irtf-cfrg-opaque/issues/384",
+      "state": "OPEN",
+      "author": "stsch9",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "The _ClientFinish_ function (Section 6.2.3) needs the _client_public_key_ if the _client_identity_ is empty. However, the _client_public_key_ is calculated in the _Recover_ function (Section 4.1.3). \r\nWould it therefore make sense that both the _Recover_ function and the _RecoverCredentials_ function (Section 6.3.2.3) return the _client_public_key_ so that it can also be used for the _AuthClientFinalize_ function (_client_identity_ = _client_public_key_ if _client_identity_ is empty)?",
+      "createdAt": "2023-02-15T16:17:43Z",
+      "updatedAt": "2023-02-15T16:17:43Z",
+      "closedAt": null,
+      "comments": []
     }
   ],
   "pulls": [
