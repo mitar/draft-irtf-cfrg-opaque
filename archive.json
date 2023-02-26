@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2023-02-16T01:37:40.718196+00:00",
+  "timestamp": "2023-02-26T01:44:08.726105+00:00",
   "repo": "cfrg/draft-irtf-cfrg-opaque",
   "labels": [
     {
@@ -8087,6 +8087,22 @@
       "body": "The _ClientFinish_ function (Section 6.2.3) needs the _client_public_key_ if the _client_identity_ is empty. However, the _client_public_key_ is calculated in the _Recover_ function (Section 4.1.3). \r\nWould it therefore make sense that both the _Recover_ function and the _RecoverCredentials_ function (Section 6.3.2.3) return the _client_public_key_ so that it can also be used for the _AuthClientFinalize_ function (_client_identity_ = _client_public_key_ if _client_identity_ is empty)?",
       "createdAt": "2023-02-15T16:17:43Z",
       "updatedAt": "2023-02-15T16:17:43Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 386,
+      "id": "I_kwDOD79ejs5fWkuT",
+      "title": "Listing more implementations",
+      "url": "https://github.com/cfrg/draft-irtf-cfrg-opaque/issues/386",
+      "state": "OPEN",
+      "author": "mitar",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "I was exploring OPAQUE implementations (especially in Go) and I have found more. Not sure if they should all be listed in the README, but I am documenting them here because it might help others:\r\n\r\n* https://github.com/bytemare/opaque (Go, one already listed, by one of authors of the spec, not audited)\r\n* https://github.com/facebook/opaque-ke (in Rust, now maintained by Facebook, audited)\r\n* https://github.com/cymony/cryptomony and https://github.com/cymony/cryptomonyjs-opaque (Go server side, JS client side, not audited)\r\n* https://github.com/jchauhan/gopaque, https://github.com/cretz/gopaque, https://github.com/ivn-nz/gopaque (Go, variations of the same codebase, not sure how maintained, not audited)\r\n* https://github.com/frekui/opaque (Go, old, not audited)\r\n* https://github.com/gustin/opaque (Rust, old, not audited)\r\n* https://github.com/stef/libopaque (C, with bindings for many other languages, not audited)\r\n* https://github.com/cloudflare/opaque-core (Go, reference implementation, not audited)",
+      "createdAt": "2023-02-25T16:08:03Z",
+      "updatedAt": "2023-02-25T17:05:59Z",
       "closedAt": null,
       "comments": []
     }
@@ -29428,6 +29444,32 @@
           "comments": []
         }
       ]
+    },
+    {
+      "number": 385,
+      "id": "PR_kwDOD79ejs5Kpru_",
+      "title": "Use the correct request in CreateCredentialResponse",
+      "url": "https://github.com/cfrg/draft-irtf-cfrg-opaque/pull/385",
+      "state": "OPEN",
+      "author": "fmarier",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "There are two `request` members inside the `KE1` struct. The one that `CreateCredentialResponse()` needs is `credential_request`.",
+      "createdAt": "2023-02-24T00:34:17Z",
+      "updatedAt": "2023-02-24T00:34:17Z",
+      "baseRepository": "cfrg/draft-irtf-cfrg-opaque",
+      "baseRefName": "master",
+      "baseRefOid": "a66c97448b7fff8b9a99be984ded474d5c1fe2a3",
+      "headRepository": "fmarier/draft-irtf-cfrg-opaque",
+      "headRefName": "patch-1",
+      "headRefOid": "2376d76d9c8b2cc4b2eb64c7bb2ab1360d88543c",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
     }
   ]
 }
